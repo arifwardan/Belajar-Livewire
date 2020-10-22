@@ -17,7 +17,7 @@ class CreateNeedsTable extends Migration
             $table->id();
             $table->integer('amount');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('needs_category')->constrained('need_categories')
+            $table->foreignId('need_category')->constrained('need_categories')
             ->onDelete('cascade');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@ class CreateDesiresTable extends Migration
             $table->id();
             $table->integer('amount');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('desires_category')->constrained('desire_categories')
+            $table->foreignId('desire_category')->constrained('desire_categories')
             ->onDelete('cascade');
 
             $table->timestamps();
