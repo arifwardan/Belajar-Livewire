@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCreditsTable extends Migration
+class CreateDesiresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCreditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('credits', function (Blueprint $table) {
+        Schema::create('desires', function (Blueprint $table) {
             $table->id();
+            $table->integer('desires_category')->unsigned();
             $table->integer('amount');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateCreditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('credits');
+        Schema::dropIfExists('desires');
     }
 }

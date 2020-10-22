@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/tes', function () {
-    return view('dashboard.core');
+    return view('dashboard.dashboard');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
