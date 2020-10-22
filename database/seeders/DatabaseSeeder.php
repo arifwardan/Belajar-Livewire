@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Invest::factory(30)->create();
         \App\Models\DesireCategory::factory(10)->create();
         \App\Models\Desire::factory(30)->create();
-        // $this->call(DebetSeeder::class);
+        // $this->call(UserSeeder::class);
     }
 }
