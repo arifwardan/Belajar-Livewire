@@ -15,9 +15,10 @@ class CreateNeedsTable extends Migration
     {
         Schema::create('needs', function (Blueprint $table) {
             $table->id();
-            $table->integer('needs_category')->unsigned();
             $table->integer('amount');
-            $table->integer('user_id');
+            $table->integer('needs_category')->unsigned();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

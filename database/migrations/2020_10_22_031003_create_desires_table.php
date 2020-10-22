@@ -13,11 +13,14 @@ class CreateDesiresTable extends Migration
      */
     public function up()
     {
+
         Schema::create('desires', function (Blueprint $table) {
             $table->id();
-            $table->integer('desires_category')->unsigned();
             $table->integer('amount');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('desires_category')->unsigned();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('desires_category')->references('id')->on('desire_categories');
             $table->timestamps();
         });
     }

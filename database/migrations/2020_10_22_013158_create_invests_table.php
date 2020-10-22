@@ -16,6 +16,8 @@ class CreateInvestsTable extends Migration
         Schema::create('invests', function (Blueprint $table) {
             $table->id();
             $table->integer('amount');
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
