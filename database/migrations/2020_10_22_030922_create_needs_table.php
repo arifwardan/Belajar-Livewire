@@ -16,9 +16,9 @@ class CreateNeedsTable extends Migration
         Schema::create('needs', function (Blueprint $table) {
             $table->id();
             $table->integer('amount');
-            $table->integer('needs_category')->unsigned();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('needs_category')->constrained('need_categories')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

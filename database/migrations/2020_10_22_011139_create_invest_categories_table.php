@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvestsTable extends Migration
+class CreateInvestCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateInvestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('invests', function (Blueprint $table) {
+        Schema::create('invest_categories', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('invest_category')->constrained('invest_categories')
-            ->onDelete('cascade');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateInvestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invests');
+        Schema::dropIfExists('invest_categories');
     }
 }
